@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background: #07080b;
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-ink-950 font-sans text-fg antialiased;
+  }
+  ::selection {
+    background: #cbff4d;
+    color: #07080b;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex h-11 select-none items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold transition active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40;
+  }
+  .btn-lime {
+    @apply btn bg-lime-400 text-ink-950 hover:bg-lime-300;
+  }
+  .btn-ghost {
+    @apply btn border border-white/10 bg-white/[0.03] text-fg hover:bg-white/[0.08];
+  }
+  .card {
+    @apply rounded-3xl border border-white/[0.07] bg-ink-900;
+  }
+  .input {
+    @apply h-12 w-full rounded-2xl border border-white/10 bg-ink-800 px-4 text-[15px] text-fg placeholder:text-mute/60 outline-none transition focus:border-lime-400/60 focus:ring-4 focus:ring-lime-400/10 disabled:opacity-50;
+  }
+  .label {
+    @apply mb-2 block text-xs font-medium uppercase tracking-wider text-mute;
+  }
+  .grid-bg {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+  }
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
